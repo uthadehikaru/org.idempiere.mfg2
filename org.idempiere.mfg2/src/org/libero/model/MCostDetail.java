@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 
-import org.compiere.acct.Doc;
 import org.compiere.model.I_M_CostDetail;
 import org.compiere.model.MAcctSchema;
 import org.compiere.model.MClientInfo;
@@ -40,6 +39,7 @@ import org.compiere.model.X_M_CostHistory;
 import org.compiere.util.CLogger;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
+import org.idempiere.acct.IDoc;
 
 /**
  * 	Cost Detail Model
@@ -836,7 +836,7 @@ public class MCostDetail extends X_M_CostDetail
 		{
 			String docBaseType = DB.getSQLValueString((String)null, 
 					INOUTLINE_DOCBASETYPE_SQL, getM_InOutLine_ID());
-			return Doc.DOCTYPE_MatShipment.equals(docBaseType);
+			return IDoc.DOCTYPE_MatShipment.equals(docBaseType);
 		}
 		return false;
 	}
