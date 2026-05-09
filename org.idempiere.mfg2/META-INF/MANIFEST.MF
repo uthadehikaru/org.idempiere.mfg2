@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Automatic-Module-Name: org.idempiere.mfg2
 Bundle-Name: Idempiere Manufacturing2
 Bundle-SymbolicName: org.idempiere.mfg2 ;singleton:=true
-Bundle-Version: 12.0.0.qualifier
+Bundle-Version: 13.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.adempiere.base;bundle-version="6.2.0",
  org.adempiere.ui;bundle-version="6.2.0",
  org.adempiere.plugin.utils;bundle-version="6.2.0",
- org.adempiere.ui.zk;bundle-version="6.2.0",
  org.adempiere.ui.zk;bundle-version="6.2.0",
  org.krysalis.barcode4j;bundle-version="2.1.0",
  org.idempiere.zk.extra;bundle-version="6.2.0",
@@ -45,7 +45,7 @@ Export-Package: org.adempiere.model.engines,
 Eclipse-BuddyPolicy: registered
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.adempiere.plugin.utils.Incremental2PackActivator
-Bundle-Vendor: E-Evolution, Logilite.com
+Bundle-Vendor: E-Evolution, Logilite.com, RekaEstuDigital.id
 Bundle-ClassPath: .,
  lib/slf4j-api.jar
 

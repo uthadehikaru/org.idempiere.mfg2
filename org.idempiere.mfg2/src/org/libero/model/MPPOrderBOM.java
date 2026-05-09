@@ -88,7 +88,7 @@ public class MPPOrderBOM extends X_PP_Order_BOM
 		setValue(bom.getValue());
 		setDocumentNo(bom.getValue());
 		setC_UOM_ID(bom.getC_UOM_ID());
-		//setQty(bom.getQty());
+		setQty(getPP_Order().getQtyOrdered());
 		//
 		setPP_Order_ID(PP_Order_ID);
 	}
