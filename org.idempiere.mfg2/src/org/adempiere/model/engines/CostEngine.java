@@ -25,6 +25,7 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.adempiere.exceptions.AdempiereException;
+import org.compiere.acct.Doc;
 import org.compiere.model.I_AD_WF_Node;
 import org.compiere.model.I_M_CostElement;
 import org.compiere.model.MAcctSchema;
@@ -42,7 +43,6 @@ import org.compiere.model.Query;
 import org.compiere.util.CLogger;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
-import org.idempiere.acct.IDoc;
 import org.libero.model.MPPCostCollector;
 import org.libero.model.MPPOrderCost;
 import org.libero.model.RoutingService;
@@ -134,7 +134,7 @@ public class CostEngine
 				}else if(element.isStandardCosting() && cc.isReceipt()) {
 					List<MPPCostCollector> ccList = new Query(cc.getCtx(), MPPCostCollector.Table_Name,
 							"PP_Order_ID = ? AND Posted != ? AND DocStatus != ? and PP_Cost_Collector_ID<>?", cc.get_TrxName())
-									.setParameters(cc.getPP_Order_ID(), IDoc.STATUS_Posted,
+									.setParameters(cc.getPP_Order_ID(), Doc.STATUS_Posted,
 											MPPCostCollector.DOCSTATUS_Voided, cc.getPP_Cost_Collector_ID())
 									.setOnlyActiveRecords(true)
 									.list();
@@ -162,7 +162,7 @@ public class CostEngine
 		} else if(element.isAverageInvoice() || element.isAveragePO()) {
 			List<MPPCostCollector> ccList = new Query(cc.getCtx(), MPPCostCollector.Table_Name,
 					"PP_Order_ID = ? AND Posted != ? AND DocStatus != ? and PP_Cost_Collector_ID<>?", cc.get_TrxName())
-							.setParameters(cc.getPP_Order_ID(), IDoc.STATUS_Posted, MPPCostCollector.DOCSTATUS_Voided,
+							.setParameters(cc.getPP_Order_ID(), Doc.STATUS_Posted, MPPCostCollector.DOCSTATUS_Voided,
 									cc.getPP_Cost_Collector_ID())
 							.setOnlyActiveRecords(true)
 							.list();
